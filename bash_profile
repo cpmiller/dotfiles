@@ -1,5 +1,6 @@
 # home folder of the .dotfiles
 DOTFILES_HOME="$HOME/.dotfiles" 
+echo $DOTFILES_HOME
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
@@ -7,18 +8,12 @@ export PATH="$HOME/bin:$PATH"
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in $DOTFILES_HOME/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in $DOTFILES_HOME/{path,bash_prompt,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
 
-ANDROID_TOOLS=/Users/Shared/Development/android-sdk-macosx
-
-PATH=~/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:${PATH}
-PATH=${PATH}:${ANDROID_TOOLS}/platform-tools:${ANDROID_TOOLS}/tools
-
-export PATH
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob

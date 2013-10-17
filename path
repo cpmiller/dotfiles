@@ -1,0 +1,6 @@
+ANDROID_TOOLS="/Users/Shared/Development/android-sdk-macosx"
+
+PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:${PATH}
+PATH=${PATH}:${ANDROID_TOOLS}/platform-tools:${ANDROID_TOOLS}/tools
+
+export PATH
