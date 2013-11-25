@@ -1,6 +1,24 @@
-ANDROID_TOOLS="/Users/Shared/Development/android-sdk-macosx"
+if [[ `uname -s` = "Darwin" ]]; then
+	#Mac specific path entries
+	ANDROID_TOOLS="/Users/Shared/Development/android-sdk-macosx"
+	GNU_UTILS="/usr/local/opt/coreutils/libexec/gnubin"
+else
+	#Linux specific paths
+	ANDROID_TOOLS="/opt/android-sdk-linux"
+fi
 
-PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:${PATH}
+
+
+PATH=${GNU_UTILS}:/usr/local/bin:${PATH}
 PATH=${PATH}:${ANDROID_TOOLS}/platform-tools:${ANDROID_TOOLS}/tools
 
+# home folder bin
+if [[ -f ~/bin ]] ; then
+	PATH=~/bin:${PATH}
+fi
+
+
 export PATH
+
+
+
