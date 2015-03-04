@@ -9,6 +9,9 @@ if [ `uname -s` = "Darwin" ]; then
 fi
 
 #everything else
+# GREP_OPTIONS is deprecated, so let's be creative.
+alias grep="grep $GREP_OPTIONII"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
         colorflag="--color"
@@ -32,4 +35,3 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-  
