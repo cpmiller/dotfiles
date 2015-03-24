@@ -35,7 +35,7 @@ else
 fi
 
 #load local .profile, if any
-if [[ -f ~/.profile ]]
+if [[ -f ~/.profile ]]; then
     ~/.profile
 fi
 
