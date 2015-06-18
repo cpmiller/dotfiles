@@ -25,7 +25,7 @@ shopt -s cdspell
 [[ -e "$HOME/.ssh/config" ]] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
 # ... and the rest
-if [[ -f `which brew` ]]; then
+if [[ -f `which brew 2>/dev/null` ]]; then
   if [[ -f `brew --prefix`/etc/bash_completion ]]; then
       . `brew --prefix`/etc/bash_completion
   fi
@@ -33,4 +33,10 @@ else
 	[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
 	    . /usr/share/bash-completion/bash_completion
 fi
+
+#load local .profile, if any
+if [[ -f ~/.profile ]]; then
+    . ~/.profile
+fi
+
 
